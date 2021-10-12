@@ -20,5 +20,18 @@
                 <p>There's no comments for this post.</p>
             @endforelse
         </div>
+        <div class="col-12 mt-2">
+            <form action="{{ route('create-comment', ['movie' => $movie->id]) }}" method="POST">
+                @csrf
+                <div class="form-group my-3">
+                    <label for="content">Add comment: </label>
+                    <textarea name="content" id="content" cols="30" rows="10" class="form-control" placeholder="Write.."></textarea>
+                    @error('content') 
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
 @endsection
