@@ -8,7 +8,7 @@
         <div class="col-12">
             <h1>{{ $movie->title }} ({{ $movie->year }})</h1>
             <hr>
-            <p>Genre: {{ $movie->genre }}</p>
+            <p>Genre: <a href="{{ route('genres', ['genre' => $movie->genre ]) }}">{{ $movie->genre }}</a></p>
             <p>Director: {{ $movie->director }}</p>
             <p>Storyline <br> {{ $movie->storyline }}</p>
         </div>
