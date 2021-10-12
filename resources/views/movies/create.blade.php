@@ -5,7 +5,8 @@
     <h1>Add New Movie</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum aliquam earum vel soluta repellat laborum eaque quis in similique quibusdam ut enim nihil tempora, voluptas maxime quam blanditiis. Fuga, porro!</p>
     <hr>
-    <form action="" class="my-3">
+    <form action="{{ route('store-movie') }}" method="POST" class="my-3">
+        @csrf
         <div class="form-group mb-2">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" class="form-control" placeholder="Title..">

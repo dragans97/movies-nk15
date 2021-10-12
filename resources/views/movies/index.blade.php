@@ -5,7 +5,7 @@
     <div class="row">
         @forelse ($movies as $movie)
         
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-4 col-sm-12 my-2">
                 <div class="card">
                     <div class="card-body">
                     <h5 class="card-title">{{ $movie->title }}</h5>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Http\Requests\MovieRequest;
+use Session;
 
 class MoviesController extends Controller
 {
@@ -35,9 +37,14 @@ class MoviesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MovieRequest $request)
     {
-        //
+        
+        $data = $request->validated();
+        $movie = Movie::create($data);
+
+        session()->flash('success', 'You have successfully aded movie.');
+        return redirect()->back();
     }
 
     /**
