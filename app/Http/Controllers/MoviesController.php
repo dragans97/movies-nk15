@@ -39,11 +39,10 @@ class MoviesController extends Controller
      */
     public function store(MovieRequest $request)
     {
-        
         $data = $request->validated();
         $movie = Movie::create($data);
-
         session()->flash('success', 'You have successfully aded movie.');
+        
         return redirect()->back();
     }
 
