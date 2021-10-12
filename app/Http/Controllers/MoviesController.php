@@ -42,7 +42,7 @@ class MoviesController extends Controller
         $data = $request->validated();
         $movie = Movie::create($data);
         session()->flash('success', 'You have successfully aded movie.');
-        
+
         return redirect()->back();
     }
 
@@ -54,6 +54,8 @@ class MoviesController extends Controller
      */
     public function show(Movie $movie)
     {
+        $movie->load('comments');
+
         return view('movies.show', compact('movie'));
     }
 
