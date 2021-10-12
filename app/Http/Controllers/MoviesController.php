@@ -17,8 +17,9 @@ class MoviesController extends Controller
     public function index()
     {
         $movies = Movie::all();
+        $latestMovies = Movie::latest()->take(5)->get();
 
-        return view('movies.index', compact('movies'));
+        return view('movies.index', compact('movies', 'latestMovies'));
     }
 
     /**
